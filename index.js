@@ -6,6 +6,7 @@ let paper = document.getElementById('p');
 let scissors = document.getElementById('s');
 // console.log(userScore);
 console.log(result.textContent)
+
 function getComputerChoice() {
     // Array of choices
     const choices = ['rock', 'paper', 'scissors'];
@@ -20,7 +21,7 @@ function getComputerChoice() {
 // console.log(getComputerChoice()); // Output: rock
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        result.textContent = "It's a tie!";
+        return "It's a tie!";
     } else if (
         (playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
@@ -44,4 +45,4 @@ function playGame() {
     // console.log(`You won ${won} times and lost ${lost} times`);
 }
 
-// playGame();
+playGame();
