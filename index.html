@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Your content goes here -->
@@ -15,20 +15,20 @@
             <div id="computer-label" class="badge">comp</div>
             <span id="user-score">0</span>:<span id="computer-score">0</span>
         </div>
-        <div class="result">
-            <p>Paper covers rock. You win!</p>
-        </div>
+        <p id="result">click the button to start the game!</p>
         <div class="choices">
-            <div class="choice" id="r">
-                <img src="images/rock.png" alt="">
-            </div>
-            <div class="choice" id="p">
-                <img src="images/paper.png" alt="">
-            </div>
-            <div class="choice" id="s">
-                <img src="images/scissors.png" alt="">
-            </div>
+            <button class="choice" id="r" value="rock">
+                <img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296854_1280.png" alt="Rock">
+            </button>
+            <button class="choice" id="p" value="paper">
+                <img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296855_1280.png" alt="Paper">
+            </button>
+            <button class="choice" id="s" value="scissors">
+                <img src="https://cdn.pixabay.com/photo/2014/03/25/15/26/rock-paper-scissors-296853_1280.png" alt="Scissors">
+            </button>
         </div>
-        <p id="action-message">Make your move</p>
+    </div>
+    <!-- script -->
+    <script src="index.js"></script>
 </body>
 </html>

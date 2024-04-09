@@ -1,0 +1,87 @@
+/* style.css */
+
+
+/* Set background color and font styles */
+body {
+    background-color: #bfb6b2;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Style the scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #2f4e5e;
+    color: #fff;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    align-self: center;
+}
+
+.badge {
+    font-size: 28px;
+    display: inline-block;
+    width: 100px;
+}
+
+/* Center the content */
+.container {
+    text-align: center;
+    background-color: #021b25;
+    margin: 10px auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 95vh;
+    border-radius: 10px;
+}
+
+/* Style the heading */
+h1 {
+    font-size: 36px;
+    color: #fefefe;
+    margin-bottom: 20px;
+}
+
+/* Style the buttons */
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+    gap:10px;
+}
+
+.choice {
+    background-color: #fda251;
+    color: #fefefe;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    flex: 110px 0 1 ;
+    height: 100px;
+}
+
+.choice:hover {
+    background-color: #2f4e5e;
+}
+
+.choice:active{
+    background-color: chartreuse;
+}
+/* Style the result message */
+#result {
+    font-size: 20px;
+    color: #fefefe;
+    font-weight: bolder;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
