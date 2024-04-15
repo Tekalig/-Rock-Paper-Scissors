@@ -1,48 +1,75 @@
-let userScore = document.getElementById('user-score');
-let computerScore = document.getElementById('computer-score');
-let result = document.getElementsById('result');
-let rock = document.getElementById('r');
-let paper = document.getElementById('p');
-let scissors = document.getElementById('s');
-// console.log(userScore);
-console.log(result.textContent)
+let userScore = document.getElementById("user-score");
+let computerScore = document.getElementById("computer-score");
+let result = document.getElementById("result");
+let rock = document.getElementById("r");
+let paper = document.getElementById("p");
+let scissors = document.getElementById("s");
 
 function getComputerChoice() {
-    // Array of choices
-    const choices = ['rock', 'paper', 'scissors'];
+  // Array of choices
+  const choices = ["rock", "paper", "scissors"];
 
-    // Generate a random index
-    const randomIndex = Math.floor(Math.random() * choices.length);
+  // Generate a random index
+  const randomIndex = Math.floor(Math.random() * choices.length);
 
-    // Return the randomly chosen choice
-    return choices[randomIndex];
+  // Return the randomly chosen choice
+  return choices[randomIndex];
 }
 
 // console.log(getComputerChoice()); // Output: rock
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return "It's a tie!";
-    } else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'paper' && computerSelection === 'rock') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper')
-    ) {
-        // won++;
-        result.innerText = `You Win! ${playerSelection} beats ${computerSelection}`;
+  if (playerSelection === computerSelection) {
+    result.style.color = "yellow";
+    result.innerText = "It's a tie!";
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    userWon++;
+    userScore.innerText = userWon;
+    result.style.color = "green";
+    result.innerText = `You Win! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    computerWon++;
+    computerScore.innerText = computerWon;
+    result.style.color = "red";
+    result.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`;
+  }
+}
+let count = 0;
+let userWon = 0;
+let computerWon = 0;
+function playGame(playerSelection) {
+  // Generate a random index
+  const computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
+  count++;
+  if (count === 6) {
+    if (computerWon > userWon) {
+      result.style.color = "red";
+      result.innerText = `Game Over \n Computer Won! \n Better Luck Next Time!`;
+    } else if (computerWon < userWon) {
+      result.style.color = "green";
+      result.innerText = `Game Over \nYou Won! \n Congratulations!`;
     } else {
-        // lost++;
-        result.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`;
+      result.style.color = "yellow";
+      result.innerText = `Game Over \nIt's a tie! \n Play Again!`;
     }
+    userWon = 0;
+    computerWon = 0;
+    count = 0;
+  }
+  userScore.innerText = userWon;
+  computerScore.innerText = computerWon;
 }
 
-function playGame() {
-    // Generate a random index
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt('Enter your choice: rock, paper or scissors').toLowerCase();
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-    }
-    // console.log(`You won ${won} times and lost ${lost} times`);
-}
-
-playGame();
+rock.addEventListener("click", function () {
+  playGame(rock.value);
+});
+paper.addEventListener("click", function () {
+  playGame(paper.value);
+});
+scissors.addEventListener("click", function () {
+  playGame(scissors.value);
+});
