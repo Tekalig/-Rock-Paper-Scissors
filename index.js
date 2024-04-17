@@ -52,10 +52,10 @@ function playGame(playerSelection) {
   if (count === 6) {
     if (computerWon > userWon) {
       result.style.color = "red";
-      result.innerText = `Game Over \n Computer Won! \n Better Luck Next Time!`;
+      result.innerText = `Game Over Computer Won! \nBetter Luck Next Time!`;
     } else if (computerWon < userWon) {
       result.style.color = "green";
-      result.innerText = `Game Over \nYou Won! \n Congratulations!`;
+      result.innerText = `Game Over You Won! \nCongratulations!`;
     } else {
       result.style.color = "yellow";
       result.innerText = `Game Over \nIt's a tie! \n Play Again!`;
