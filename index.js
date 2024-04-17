@@ -1,9 +1,16 @@
 let userScore = document.getElementById("user-score");
 let computerScore = document.getElementById("computer-score");
 let result = document.getElementById("result");
-let rock = document.getElementById("r");
-let paper = document.getElementById("p");
-let scissors = document.getElementById("s");
+
+let count = 0;
+let userWon = 0;
+let computerWon = 0;
+
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", () => {
+    playGame(button.value);
+  });
+});
 
 function getComputerChoice() {
   // Array of choices
@@ -37,9 +44,6 @@ function playRound(playerSelection, computerSelection) {
     result.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
 }
-let count = 0;
-let userWon = 0;
-let computerWon = 0;
 function playGame(playerSelection) {
   // Generate a random index
   const computerSelection = getComputerChoice();
@@ -63,13 +67,3 @@ function playGame(playerSelection) {
   userScore.innerText = userWon;
   computerScore.innerText = computerWon;
 }
-
-rock.addEventListener("click", function () {
-  playGame(rock.value);
-});
-paper.addEventListener("click", function () {
-  playGame(paper.value);
-});
-scissors.addEventListener("click", function () {
-  playGame(scissors.value);
-});
